@@ -63,7 +63,7 @@ public class Combustivel {
     
     public void calcularLitros(double km){
         this.setLitros(km/12);
-        System.out.println("A quantidade de litros é " + getLitros());
+        System.out.println("A quantidade de litros usada foi " + getLitros());
     }
     
     public void calcularTotalGasto(double valorComb){
