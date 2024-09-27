@@ -28,3 +28,10 @@ nomeProduto varchar(255)
 );
 
 select * from consultaVendas;
+
+create table consultaPrefeitura(
+id int auto_increment primary key,
+codigo int,
+nomePrefeitura varchar(255),
+cidade varchar(255)
+);
