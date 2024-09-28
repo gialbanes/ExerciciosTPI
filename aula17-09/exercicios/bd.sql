@@ -35,3 +35,12 @@ codigo int,
 nomePrefeitura varchar(255),
 cidade varchar(255)
 );
+
+select * from consultaPrefeitura;
+
+create table consultaEmpresa(
+id int auto_increment primary key,
+cnpj varchar(14),
+nomeEmpresa varchar(255),
+endereco varchar(255)
+);

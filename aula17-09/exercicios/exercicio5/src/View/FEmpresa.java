@@ -3,28 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package view;
+package View;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
-import model.Venda;
+import Model.Empresa;
 
 /**
  *
  * @author fatec-dsm2
  */
-public class FPrefeitura extends javax.swing.JFrame {
+public class FEmpresa extends javax.swing.JFrame {
 
     /**
-     * Creates new form FPrefeitura
+     * Creates new form FEmpresa
      */
-    public FPrefeitura() {
+    public FEmpresa() {
         initComponents();
     }
-    
-    Venda v = new Venda();
+    Empresa e = new Empresa();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -35,48 +30,61 @@ public class FPrefeitura extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jtbl_empresa = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        lbl_codigo = new javax.swing.JLabel();
-        txt_codigo = new javax.swing.JTextField();
-        lbl_nomePrefeitura = new javax.swing.JLabel();
-        txt_nomePrefeitura = new javax.swing.JTextField();
-        lbl_cidade = new javax.swing.JLabel();
-        txt_cidade = new javax.swing.JTextField();
+        lbl_cnpj = new javax.swing.JLabel();
+        txt_cnpj = new javax.swing.JTextField();
+        lbl_nomeEmpresa = new javax.swing.JLabel();
+        txt_nomeEmpresa = new javax.swing.JTextField();
+        lbl_endereco = new javax.swing.JLabel();
+        txt_endereco = new javax.swing.JTextField();
         btn_limpar = new javax.swing.JButton();
         btn_gravar = new javax.swing.JButton();
         btn_sair = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jtbl_prefeitura = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jtbl_empresa.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "ID", "CNPJ", "Nome da empresa", "Endereço"
+            }
+        ));
+        jScrollPane1.setViewportView(jtbl_empresa);
+
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setText("Cadastro de prefeituras");
+        jLabel1.setText("Cadastro de empresas");
 
-        lbl_codigo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        lbl_codigo.setText("Código");
+        lbl_cnpj.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lbl_cnpj.setText("CNPJ");
 
-        txt_codigo.addActionListener(new java.awt.event.ActionListener() {
+        txt_cnpj.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_codigoActionPerformed(evt);
+                txt_cnpjActionPerformed(evt);
             }
         });
 
-        lbl_nomePrefeitura.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        lbl_nomePrefeitura.setText("Nome da prefeitura");
+        lbl_nomeEmpresa.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lbl_nomeEmpresa.setText("Nome da empresa");
 
-        txt_nomePrefeitura.addActionListener(new java.awt.event.ActionListener() {
+        txt_nomeEmpresa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_nomePrefeituraActionPerformed(evt);
+                txt_nomeEmpresaActionPerformed(evt);
             }
         });
 
-        lbl_cidade.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        lbl_cidade.setText("Cidade");
+        lbl_endereco.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lbl_endereco.setText("Endereço");
 
-        txt_cidade.addActionListener(new java.awt.event.ActionListener() {
+        txt_endereco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_cidadeActionPerformed(evt);
+                txt_enderecoActionPerformed(evt);
             }
         });
 
@@ -101,19 +109,6 @@ public class FPrefeitura extends javax.swing.JFrame {
             }
         });
 
-        jtbl_prefeitura.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "ID", "Código", "Nome da prefeitura", "Cidade"
-            }
-        ));
-        jScrollPane1.setViewportView(jtbl_prefeitura);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -122,22 +117,22 @@ public class FPrefeitura extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(68, 68, 68)
-                        .addComponent(lbl_codigo)
+                        .addComponent(lbl_cnpj)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txt_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txt_cnpj, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(txt_nomePrefeitura, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txt_nomeEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(70, 70, 70)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(lbl_cidade)
+                                .addComponent(lbl_endereco)
                                 .addGap(128, 128, 128)
-                                .addComponent(txt_cidade, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txt_endereco, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(lbl_nomePrefeitura)
+                                .addComponent(lbl_nomeEmpresa)
                                 .addGap(0, 0, Short.MAX_VALUE)))))
                 .addGap(74, 74, 74))
             .addGroup(layout.createSequentialGroup()
@@ -164,16 +159,16 @@ public class FPrefeitura extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(94, 94, 94)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_codigo)
-                    .addComponent(txt_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbl_cnpj)
+                    .addComponent(txt_cnpj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_nomePrefeitura)
-                    .addComponent(txt_nomePrefeitura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbl_nomeEmpresa)
+                    .addComponent(txt_nomeEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_cidade)
-                    .addComponent(txt_cidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbl_endereco)
+                    .addComponent(txt_endereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(65, 65, 65)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_gravar, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -181,55 +176,55 @@ public class FPrefeitura extends javax.swing.JFrame {
                     .addComponent(btn_sair, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(145, 145, 145)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(76, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txt_codigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_codigoActionPerformed
+    private void txt_cnpjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_cnpjActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_codigoActionPerformed
+    }//GEN-LAST:event_txt_cnpjActionPerformed
 
-    private void txt_nomePrefeituraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nomePrefeituraActionPerformed
+    private void txt_nomeEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nomeEmpresaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_nomePrefeituraActionPerformed
+    }//GEN-LAST:event_txt_nomeEmpresaActionPerformed
 
-    private void txt_cidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_cidadeActionPerformed
+    private void txt_enderecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_enderecoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_cidadeActionPerformed
-
-    private void btn_gravarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_gravarActionPerformed
-        // TODO add your handling code here:
-        v.setCodigo(Integer.parseInt(txt_codigo.getText()));
-        v.setNomePrefeitura(txt_nomePrefeitura.getText());
-        v.setCidade(txt_cidade.getText());
-        v.gravar();
-        
-    ResultSet tabela;
-    tabela = null;
-    
-    tabela = v.listarPrefeituras();
-    DefaultTableModel modelo = (DefaultTableModel) jtbl_prefeitura.getModel();
-    modelo.setNumRows(0);
-    try
-    {
-        do{
-            modelo.addRow(new String[]{tabela.getString(1), tabela.getString(2), tabela.getString(3), tabela.getString(4)});
-        }
-     while(tabela.next());
-    }catch(SQLException erro)
-            {
-            JOptionPane.showMessageDialog(null, "Erro ao preencher tabela"+ erro) ;    
-             }
-    }//GEN-LAST:event_btn_gravarActionPerformed
+    }//GEN-LAST:event_txt_enderecoActionPerformed
 
     private void btn_limparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_limparActionPerformed
         // TODO add your handling code here:
-        txt_codigo.setText("");
-        txt_nomePrefeitura.setText("");
-        txt_cidade.setText("");
+        txt_cnpj.setText("");
+        txt_nomeEmpresa.setText("");
+        txt_endereco.setText("");
     }//GEN-LAST:event_btn_limparActionPerformed
+
+    private void btn_gravarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_gravarActionPerformed
+        // TODO add your handling code here:
+        e.setCodigo(txt_cnpj.getText());
+        e.setNomeEmpresa(txt_nomeEmpresa.getText());
+        e.setEndereco(txt_endereco.getText());
+        e.gravar();
+
+        ResultSet tabela;
+        tabela = null;
+
+        tabela = e.listarEmpresas();
+        DefaultTableModel modelo = (DefaultTableModel) jtbl_empresa.getModel();
+        modelo.setNumRows(0);
+        try
+        {
+            do{
+                modelo.addRow(new String[]{tabela.getString(1), tabela.getString(2), tabela.getString(3), tabela.getString(4)});
+            }
+            while(tabela.next());
+        }catch(SQLException erro)
+        {
+            JOptionPane.showMessageDialog(null, "Erro ao preencher tabela"+ erro) ;
+        }
+    }//GEN-LAST:event_btn_gravarActionPerformed
 
     private void btn_sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_sairActionPerformed
         // TODO add your handling code here:
@@ -253,20 +248,20 @@ public class FPrefeitura extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FPrefeitura.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FEmpresa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FPrefeitura.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FEmpresa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FPrefeitura.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FEmpresa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FPrefeitura.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FEmpresa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FPrefeitura().setVisible(true);
+                new FEmpresa().setVisible(true);
             }
         });
     }
@@ -277,12 +272,12 @@ public class FPrefeitura extends javax.swing.JFrame {
     private javax.swing.JButton btn_sair;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jtbl_prefeitura;
-    private javax.swing.JLabel lbl_cidade;
-    private javax.swing.JLabel lbl_codigo;
-    private javax.swing.JLabel lbl_nomePrefeitura;
-    private javax.swing.JTextField txt_cidade;
-    private javax.swing.JTextField txt_codigo;
-    private javax.swing.JTextField txt_nomePrefeitura;
+    private javax.swing.JTable jtbl_empresa;
+    private javax.swing.JLabel lbl_cnpj;
+    private javax.swing.JLabel lbl_endereco;
+    private javax.swing.JLabel lbl_nomeEmpresa;
+    private javax.swing.JTextField txt_cnpj;
+    private javax.swing.JTextField txt_endereco;
+    private javax.swing.JTextField txt_nomeEmpresa;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,6 +5,10 @@
  */
 package model;
 
+import control.Conexao;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author fatec-dsm2
@@ -13,6 +17,8 @@ public class Venda {
     private int codigo;
     private String nomePrefeitura;
     private String cidade;
+    
+    Conexao con = new Conexao();
 
     public Venda() {
         this(0, "", "");
@@ -50,5 +56,14 @@ public class Venda {
     public void gravar(){
         String sql;
         sql = "Insert into consultaPrefeitura(codigo, nomePrefeitura, cidade) values" + "(" + getCodigo() + ", '" + getNomePrefeitura() + "', '" + getCidade() + "')";
+        con.executeSQL(sql);
+        JOptionPane.showMessageDialog(null, "Registro salvo!");
+    }
+    public ResultSet listarPrefeituras(){
+        ResultSet tabela;
+        tabela = null;
+        String sql = "Select * from consultaPrefeitura;";
+        tabela = con.RetornarResultset(sql);
+        return tabela;
     }
 }
