@@ -6,6 +6,10 @@
 package View;
 
 import Model.Empresa;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -157,7 +161,7 @@ public class FEmpresa extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addComponent(jLabel1)
-                .addGap(94, 94, 94)
+                .addGap(143, 143, 143)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_cnpj)
                     .addComponent(txt_cnpj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -203,7 +207,7 @@ public class FEmpresa extends javax.swing.JFrame {
 
     private void btn_gravarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_gravarActionPerformed
         // TODO add your handling code here:
-        e.setCodigo(txt_cnpj.getText());
+        e.setCnpj(txt_cnpj.getText());
         e.setNomeEmpresa(txt_nomeEmpresa.getText());
         e.setEndereco(txt_endereco.getText());
         e.gravar();
@@ -217,7 +221,7 @@ public class FEmpresa extends javax.swing.JFrame {
         try
         {
             do{
-                modelo.addRow(new String[]{tabela.getString(1), tabela.getString(2), tabela.getString(3), tabela.getString(4)});
+                modelo.addRow(new String[]{tabela.getString(1), tabela.getString(2), tabela.getString(3), tabela.getString(4), tabela.getString(5)});
             }
             while(tabela.next());
         }catch(SQLException erro)

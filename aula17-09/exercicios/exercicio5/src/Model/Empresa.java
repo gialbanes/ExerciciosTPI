@@ -5,6 +5,10 @@
  */
 package Model;
 
+import Control.Conexao;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author fatec-dsm2
@@ -13,6 +17,8 @@ public class Empresa {
     private String cnpj;
     private String nomeEmpresa;
     private String endereco;
+    
+    Conexao con = new Conexao();
 
     public Empresa() {
         this("", "", "");
@@ -48,7 +54,17 @@ public class Empresa {
         this.endereco = endereco;
     }
     public void gravar(){
-        String sqq;
+        String sql;
+        sql = "Insert into consultaEmpresa(cnpj, nomeEmpresa, endereco) values" + "'" + getCnpj() + "', '" + getNomeEmpresa() + "', '" + getEndereco() + "')";
+        con.executeSQL(sql);
+        JOptionPane.showMessageDialog(null, "Registro salvo!");      
+    }
+    public ResultSet listarEmpresas(){
+        ResultSet tabela;
+        tabela = null;
+        String sql = "Select * from consultaEmpresa;";
+        tabela = con.RetornarResultset(sql);
+        return tabela;
     }
     
     
