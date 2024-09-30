@@ -207,27 +207,27 @@ public class FEmpresa extends javax.swing.JFrame {
 
     private void btn_gravarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_gravarActionPerformed
         // TODO add your handling code here:
-        e.setCnpj(txt_cnpj.getText());
+        e.setCnpj(Integer.parseInt(txt_cnpj.getText()));
         e.setNomeEmpresa(txt_nomeEmpresa.getText());
         e.setEndereco(txt_endereco.getText());
         e.gravar();
 
-        ResultSet tabela;
-        tabela = null;
-
-        tabela = e.listarEmpresas();
-        DefaultTableModel modelo = (DefaultTableModel) jtbl_empresa.getModel();
-        modelo.setNumRows(0);
-        try
-        {
-            do{
-                modelo.addRow(new String[]{tabela.getString(1), tabela.getString(2), tabela.getString(3), tabela.getString(4), tabela.getString(5)});
-            }
-            while(tabela.next());
-        }catch(SQLException erro)
-        {
-            JOptionPane.showMessageDialog(null, "Erro ao preencher tabela"+ erro) ;
+    ResultSet tabela;
+    tabela = null;
+    
+    tabela = e.listarEmpresas();
+    DefaultTableModel modelo = (DefaultTableModel) jtbl_empresa.getModel();
+    modelo.setNumRows(0);
+    try
+    {
+        do{
+            modelo.addRow(new String[]{tabela.getString(1), tabela.getString(2), tabela.getString(3), tabela.getString(4)});
         }
+     while(tabela.next());
+    }catch(SQLException erro)
+            {
+            JOptionPane.showMessageDialog(null, "Erro ao preencher tabela"+ erro) ;    
+             }
     }//GEN-LAST:event_btn_gravarActionPerformed
 
     private void btn_sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_sairActionPerformed

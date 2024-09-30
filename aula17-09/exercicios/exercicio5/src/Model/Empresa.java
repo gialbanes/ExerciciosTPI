@@ -14,27 +14,27 @@ import javax.swing.JOptionPane;
  * @author fatec-dsm2
  */
 public class Empresa {
-    private String cnpj;
+    private int cnpj;
     private String nomeEmpresa;
     private String endereco;
     
     Conexao con = new Conexao();
 
     public Empresa() {
-        this("", "", "");
+        this(0, "", "");
     }
 
-    public Empresa(String cnpj, String nomeEmpresa, String endereco) {
+    public Empresa(int cnpj, String nomeEmpresa, String endereco) {
         this.cnpj = cnpj;
         this.nomeEmpresa = nomeEmpresa;
         this.endereco = endereco;
     }
 
-    public String getCnpj() {
+    public int getCnpj() {
         return cnpj;
     }
 
-    public void setCnpj(String cnpj) {
+    public void setCnpj(int cnpj) {
         this.cnpj = cnpj;
     }
 
@@ -55,7 +55,7 @@ public class Empresa {
     }
     public void gravar(){
         String sql;
-        sql = "Insert into consultaEmpresa(cnpj, nomeEmpresa, endereco) values" + "'" + getCnpj() + "', '" + getNomeEmpresa() + "', '" + getEndereco() + "')";
+        sql = "Insert into consultaEmpresa(cnpj, nomeEmpresa, endereco) values ("  + getCnpj() + ", '" + getNomeEmpresa() + "', '" + getEndereco() + "')";
         con.executeSQL(sql);
         JOptionPane.showMessageDialog(null, "Registro salvo!");      
     }
