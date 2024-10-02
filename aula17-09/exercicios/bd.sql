@@ -44,3 +44,5 @@ cnpj varchar(14),
 nomeEmpresa varchar(255),
 endereco varchar(255)
 );
+
+select * from consultaEmpresa;
