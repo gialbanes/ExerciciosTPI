@@ -61,7 +61,6 @@ public class CustoPiso {
     public void inserirValores(){
         setComprimentoComodo(Double.parseDouble(JOptionPane.showInputDialog("Digite o comprimento do cômodo:")));
         setLarguraComodo(Double.parseDouble(JOptionPane.showInputDialog("Digite a largura do cômodo:")));
-        setPrecoPorArea(Double.parseDouble(JOptionPane.showInputDialog("Digite o preço por área:")));
     }
     public void calcularPrecoArea(){
         setCustoTotalComodo(getComprimentoComodo() * getLarguraComodo() + getPrecoPorArea());
