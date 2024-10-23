@@ -97,7 +97,20 @@ public class Usuario {
         String sql;
         sql="Update usuario set nome = '" + getNome()+ "', telefone = '" +getTelefone()+ "' where codigo = "+ getCodigo();
         con.executeSQL(sql);
-        JOptionPane.showMessageDialog(null, "Registro alterado!");
-        
+        JOptionPane.showMessageDialog(null, "Registro alterado!"); 
     } 
+    //código classe usuário 
+    //busca de campo especifico
+    public ResultSet consultarCampoEspecifico(){
+        ResultSet tabela;
+        tabela = null;
+        try{
+          String sql="Select * from usuario where nome like '"+ getNome()+"%'";
+          tabela= con.RetornarResultset(sql);                  
+           }
+           catch(Exception sqle){
+                JOptionPane.showMessageDialog(null,"Atenção..."+sqle.getMessage());
+           }
+        return tabela;    
+    }
 }
