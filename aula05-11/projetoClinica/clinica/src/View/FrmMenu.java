@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package view;
+package View;
 
 /**
  *
@@ -27,34 +27,27 @@ public class FrmMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        lbllogar = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        lblLogar = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
-        jLabel3.setText("jLabel3");
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setResizable(false);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icones/manutencao.jpg"))); // NOI18N
+        lbllogar.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lbllogar.setText("Paciente");
 
-        jLabel2.setText("jLabel2");
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconesclinica/clinica.jpg"))); // NOI18N
 
-        lblLogar.setText("Usuário");
-
-        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icones/novo.png"))); // NOI18N
         jMenu1.setText("Arquivo");
         jMenu1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jMenu1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
         jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_MASK));
-        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icones/account.png"))); // NOI18N
-        jMenuItem1.setText("Cadastrar usuário");
+        jMenuItem1.setText("Cadastrar paciente");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
@@ -64,7 +57,6 @@ public class FrmMenu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icones/exit.png"))); // NOI18N
         jMenu2.setText("Sair");
         jMenu2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jMenu2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -77,18 +69,20 @@ public class FrmMenu extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel1)
-                .addGap(0, 75, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblLogar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 676, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbllogar))
+                .addGap(0, 1, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(lblLogar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                .addGap(5, 5, 5)
+                .addComponent(lbllogar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1))
         );
 
@@ -98,7 +92,7 @@ public class FrmMenu extends javax.swing.JFrame {
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
         this.setVisible(false); /* visibilidade do form atual é false */
-        FrmUsuario fu = new FrmUsuario();
+        FrmPaciente fu = new FrmPaciente();
         fu.setVisible(true);  /* visibilidade do usuário e true, logo ele é aberto */
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
@@ -140,11 +134,10 @@ public class FrmMenu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    public javax.swing.JLabel lblLogar;
+    public javax.swing.JLabel lbllogar;
     // End of variables declaration//GEN-END:variables
 }

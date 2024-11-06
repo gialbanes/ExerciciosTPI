@@ -375,10 +375,9 @@ public class FrmUsuario extends javax.swing.JFrame {
        
       //mostra as informações da linha selecionada na tabela na caixa de texto
          txtCodigo.setText(jtblUsuarios.getValueAt(linhaSelecionada , 0).toString());
-         txtNome.setText(jtblUsuarios.getValueAt(linhaSelecionada , 1).toString());
-         txtTelefone.setText(jtblUsuarios.getValueAt(linhaSelecionada , 2).toString());
-         txtSenha.setText(jtblUsuarios.getValueAt(linhaSelecionada , 3).toString());      
-         txtLogin.setText(jtblUsuarios.getValueAt(linhaSelecionada , 4).toString());  
+         txtTelefone.setText(jtblUsuarios.getValueAt(linhaSelecionada , 1).toString());
+         txtSenha.setText(jtblUsuarios.getValueAt(linhaSelecionada , 2).toString());      
+         txtLogin.setText(jtblUsuarios.getValueAt(linhaSelecionada , 3).toString());  
     }//GEN-LAST:event_jtblUsuariosMouseClicked
 
     private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed

@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package view;
+package View;
 
+import Model.Paciente;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import model.Usuario;
 
 /**
  *
@@ -24,7 +24,8 @@ public class FrmLogin extends javax.swing.JFrame {
     public FrmLogin() {
         initComponents();
     }
-    Usuario usu = new Usuario();
+    
+    Paciente p = new Paciente();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -38,9 +39,9 @@ public class FrmLogin extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        txtLogin = new javax.swing.JTextField();
-        txtSenha = new javax.swing.JPasswordField();
-        btnLogar = new javax.swing.JButton();
+        txtlogin = new javax.swing.JTextField();
+        txtsenha = new javax.swing.JPasswordField();
+        btnlogar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -54,10 +55,10 @@ public class FrmLogin extends javax.swing.JFrame {
         jLabel3.setText("Senha");
         jLabel3.setToolTipText("");
 
-        btnLogar.setText("Logar");
-        btnLogar.addActionListener(new java.awt.event.ActionListener() {
+        btnlogar.setText("Logar");
+        btnlogar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLogarActionPerformed(evt);
+                btnlogarActionPerformed(evt);
             }
         });
 
@@ -72,9 +73,9 @@ public class FrmLogin extends javax.swing.JFrame {
                     .addComponent(jLabel2))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnLogar, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnlogar, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtsenha, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtlogin, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(45, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -83,18 +84,18 @@ public class FrmLogin extends javax.swing.JFrame {
                 .addGap(45, 45, 45)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(txtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtlogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtsenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
-                .addComponent(btnLogar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnlogar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38))
         );
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setText("Login do usuário");
+        jLabel1.setText("Login do paciente");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -108,44 +109,44 @@ public class FrmLogin extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(89, 89, 89)
                         .addComponent(jLabel1)))
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addComponent(jLabel1)
-                .addGap(32, 32, 32)
+                .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnLogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogarActionPerformed
+    private void btnlogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlogarActionPerformed
         // TODO add your handling code here:
-    // TODO add your handling code here:
-        usu.setSenha(txtSenha.getText());
-        usu.setLogin(txtLogin.getText());
+        // TODO add your handling code here:
+        p.setSenha(txtsenha.getText());
+        p.setLogin(txtlogin.getText());
         ResultSet tabela;
-        tabela = usu.logar();
+        tabela = p.logar();
 
         try {
             if(tabela.first()) {
-                JOptionPane.showMessageDialog(null, "usuário autenticado");
-                String usuarioLogado = txtLogin.getText();
+                JOptionPane.showMessageDialog(null, "Usuário autenticado!");
+                String usuarioLogado = txtlogin.getText();
 
                 FrmMenu telaPrincipal = new FrmMenu();
                 telaPrincipal.setVisible(true);
-                telaPrincipal.lblLogar.setText(usuarioLogado);
+                telaPrincipal.lbllogar.setText(usuarioLogado);
             } else {
-                JOptionPane.showMessageDialog(null, "não existe esse usuário no banco");
+                JOptionPane.showMessageDialog(null, "Não existe esse usuário no banco!");
             }
-            } catch (SQLException ex) {
-                Logger.getLogger(FrmLogin.class.getName()).log(Level.SEVERE, null, ex);
-            }
-    }//GEN-LAST:event_btnLogarActionPerformed
+        } catch (SQLException ex) {
+            Logger.getLogger(FrmLogin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnlogarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -183,12 +184,12 @@ public class FrmLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnLogar;
+    private javax.swing.JButton btnlogar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField txtLogin;
-    private javax.swing.JPasswordField txtSenha;
+    private javax.swing.JTextField txtlogin;
+    private javax.swing.JPasswordField txtsenha;
     // End of variables declaration//GEN-END:variables
 }

@@ -113,4 +113,12 @@ public class Usuario {
            }
         return tabela;    
     }
+    public ResultSet logar(){
+        ResultSet tabela;
+        tabela = null;
+        String sql = "select * from usuario where login = '" + getLogin() + "'and senha = '" + getSenha() + "'";    
+        JOptionPane.showMessageDialog(null, sql);
+        tabela = con.RetornarResultset(sql);
+        return tabela;
+    }
 }
